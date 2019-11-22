@@ -31,19 +31,13 @@ try {
 
   const context = github.context;
 
-  const newIssue = await octokit.issues.create({
-    ...context.repo,
-    title: "New issue!",
-    body: "Hello Universe!"
-  });
-
   console.log(JSON.stringify(context));
-  octokit.pulls.createReview({
-    owner: context.repo.owner,
-    repo: context.repo,
-    pull_number: context.pull_number,
-    body: "yihaa"
-  });
+  // octokit.pulls.createReview({
+  //   owner: context.repo.owner,
+  //   repo: context.repo,
+  //   pull_number: context.pull_number,
+  //   body: "yihaa"
+  // });
   // });
 } catch (error) {
   core.setFailed(error.message);
