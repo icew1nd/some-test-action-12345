@@ -29,15 +29,17 @@ try {
   // request(options, (error, response, body) => {
   //   if (error) throw new Error(error);
 
-  const context = github.context;
-
+  const context = github.context.payload;
+  const owner = context.repository.owner.name;
+  const repo = context.repository.name;
+  const pull_number = context.number;
   console.log(JSON.stringify(context));
-  // octokit.pulls.createReview({
-  //   owner: context.repo.owner,
-  //   repo: context.repo,
-  //   pull_number: context.pull_number,
-  //   body: "yihaa"
-  // });
+  octokit.pulls.createReview({
+    owner,
+    repo,
+    pull_number,
+    body: "yihaa"
+  });
   // });
 } catch (error) {
   core.setFailed(error.message);
