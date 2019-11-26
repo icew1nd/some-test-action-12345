@@ -19,5 +19,5 @@ The time we greeted you.
 ````- name: Hello world
       uses: actions/some-test-action-12345@v1
       with:
-        who-to-greet: 'Mona the Octocat'```
+        who-to-greet: 'Mona the Octocat'
 ````
