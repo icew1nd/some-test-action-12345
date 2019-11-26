@@ -3,7 +3,8 @@ const github = require("@actions/github");
 const request = require("request");
 const fs = require("fs");
 const Octokit = require("@octokit/rest");
-const octokit = new Octokit({auth: "95be03db4acc3ff3c029208e8048a5aff621c985"});
+const auth = core.getInput("gh-token");
+const octokit = new Octokit({auth});
 
 try {
   const context = github.context.payload;
